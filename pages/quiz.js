@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { Ripple } from 'react-awesome-spinners'
 
 import db from '../db.json';
 
@@ -17,7 +20,13 @@ function LoadingWidget() {
       </Widget.Header>
 
       <Widget.Content>
-        [Desafio do Loading]
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+        >
+          <Ripple />
+        </div>
       </Widget.Content>
     </Widget>
   );
@@ -110,7 +119,7 @@ export default function QuizPage() {
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
+    }, 1000);
   }, []);
 
   function handleSubmitQuiz() {
