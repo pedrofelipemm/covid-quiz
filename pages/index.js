@@ -47,7 +47,7 @@ export default function Home() {
           </Widget.Header>
           <Widget.Content>
             <p>{db.description}</p>
-            <form onSubmit={function (event) {
+            <form onSubmit={(event) => {
               event.preventDefault();
               router.push(`/quiz?name=${name}`);
             }}

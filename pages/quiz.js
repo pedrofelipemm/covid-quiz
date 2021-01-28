@@ -33,7 +33,6 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
-        {/* <BackLinkArrow href="/" /> */}
         <h3>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
@@ -57,8 +56,8 @@ function QuestionWidget({
         </p>
 
         <form
-          onSubmit={(infosDoEvento) => {
-            infosDoEvento.preventDefault();
+          onSubmit={(event) => {
+            event.preventDefault();
             onSubmit();
           }}
         >
@@ -70,7 +69,6 @@ function QuestionWidget({
                 htmlFor={alternativeId}
               >
                 <input
-              // style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
                   type="radio"
@@ -80,9 +78,6 @@ function QuestionWidget({
             );
           })}
 
-          {/* <pre>
-        {JSON.stringify(question, null, 4)}
-      </pre> */}
           <Button type="submit">
             Confirmar
           </Button>
@@ -91,6 +86,13 @@ function QuestionWidget({
     </Widget>
   );
 }
+
+QuestionWidget.propTypes = {
+  question: PropTypes.string.isRequired,
+  questionIndex: PropTypes.number.isRequired,
+  totalQuestions: PropTypes.number.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
 
 const screenStates = {
   QUIZ: 'QUIZ',
