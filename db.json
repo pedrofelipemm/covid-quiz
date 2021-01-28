@@ -1,7 +1,7 @@
 {
     "bg": "https://png.pngtree.com/thumb_back/fh260/background/20200325/pngtree-corona-virus-background-clipart-image_332330.jpg",
-    "title": "Quiz CSS da Alura",
-    "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+    "title": "COVID Quiz",
+    "description": "Teste os seus conhecimentos sobre COVID!",
     "questions": [
         {
             "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",

@@ -10,8 +10,10 @@ import QuizLogo from '../src/components/QuizLogo';
 import QuizBackground from '../src/components/QuizBackground';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
 
-export const QuizContainer = styled.div`
+const QuizContainer = styled.div`
   width: 100%;
   max-width: 350px;
   padding-top: 45px;
@@ -35,7 +37,7 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
-        <title>COVID Quiz</title>
+        <title>{db.title}</title>
       </Head>
       <QuizContainer>
         <QuizLogo />
@@ -44,21 +46,21 @@ export default function Home() {
             <h1>COVID Quiz</h1>
           </Widget.Header>
           <Widget.Content>
+            <p>{db.description}</p>
             <form onSubmit={function (event) {
               event.preventDefault();
               router.push(`/quiz?name=${name}`);
             }}
             >
-              <input
-                onChange={function (event) {
-                  // State
-                  setName(event.target.value);
-                }}
+              <Input
+                name="nomeDoUsuario"
+                onChange={(event) => setName(event.target.value)}
                 placeholder="Diz ai seu nome"
+                value={name}
               />
-              <button type="submit" disabled={name.length < 3}>
+              <Button type="submit" disabled={name.length < 3}>
                 Jogar
-              </button>
+              </Button>
             </form>
             <br />
             { name ? <Ola> Olá {name}! </Ola> : null }
