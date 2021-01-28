@@ -1,28 +1,106 @@
 {
-    "bg": "https://png.pngtree.com/thumb_back/fh260/background/20200325/pngtree-corona-virus-background-clipart-image_332330.jpg",
+    "bg": "https://www.tulsa-health.org/sites/default/files/styles/fhd/public/2020-09/GettyImages-1215392772.jpg?itok=aOUQtP4J",
     "title": "COVID Quiz",
     "description": "Teste os seus conhecimentos sobre COVID!",
     "questions": [
         {
-            "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-            "title": "Como fazer um seletor por id via CSS?",
-            "description": "Essa é pra aquecer",
-            "answer": 2,
+            "image": "https://media.giphy.com/media/XuTTVN1dLd3Qo4ygvF/giphy.gif",
+            "title": "O que é a COVID-19?",
+            "description": "",
+            "answer": 1,
             "alternatives": [
-                ".elemento",
-                "*elemento",
-                "#elemento",
-                "%elemento"
+                "É o adoecimento do pulmão causado pelo contato com os animais domésticos",
+                "É o adoecimento causado por um novo vírus, do tipo coronavírus"
             ]
         },
         {
-            "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-            "title": "Como fazer um background gradiente com css?",
-            "description": "Faz tempo em haha",
+            "image": "https://media.giphy.com/media/xUOxeVaCFVv71vepwY/giphy.gif",
+            "title": "É verdade que pessoas em tratamento de câncer possuem mais chance de ter a forma grave da COVID-19?",
+            "description": "",
             "answer": 0,
             "alternatives": [
-                "background: linear-gradient(#e66465, #9198e5);",
-                "background: gradient(#e66465, #9198e5);"
+                "Sim",
+                "Não"
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/mDYzVAlAxLUGEg44cJ/giphy.gif",
+            "title": "É verdade que os sintomas da COVID-19 podem variar entre as pessoas?",
+            "description": "",
+            "answer": 0,
+            "alternatives": [
+                "Sim",
+                "Não"
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/l2Je6xTWyWSs4Ji3C/giphy.gif",
+            "title": "Quem tem diabetes, doença no coração ou pulmão, pressão alta,  tem a mesma chance de ter a forma grave da COVID-19, em relação às outras pessoas?",
+            "description": "",
+            "answer": 1,
+            "alternatives": [
+                "Sim",
+                "Não"
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/fUMsFIbDNjKg1I65dY/giphy.gif",
+            "title": "É verdade que pessoas acima de 60 anos tem mais chance de ter a forma grave da COVID-19 do que as pessoas jovens?",
+            "description": "",
+            "answer": 0,
+            "alternatives": [
+                "Sim",
+                "Não"
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/jwKpxz0uGrqcTjDKvs/giphy.gif",
+            "title": "Posso continuar usando sempre anéis, pulseiras, brinco e colar? ",
+            "description": "",
+            "answer": 1,
+            "alternatives": [
+                "Sim",
+                "Não"
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/l4FGo3IonE0SdQYeY/giphy.gif",
+            "title": "Como posso saber se estou contaminado com o novo coronavírus?",
+            "description": "",
+            "answer": 0,
+            "alternatives": [
+                "Através de um teste específico feito em laboratório",
+                "Se tiver febre, com certeza é coronavírus."
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/aohvgsGTzqqYg/giphy.gif",
+            "title": "É verdade que um doente com a COVID-19 elimina mais vírus depois que os sintomas da doença desaparecem?",
+            "description": "",
+            "answer": 1,
+            "alternatives": [
+                "Sim",
+                "Não"
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/fwJeoYMmtETMise1Fq/giphy.gif",
+            "title": "Se eu pegar o virus, os sintomas aparecem no mesmo dia? ",
+            "description": "",
+            "answer": 1,
+            "alternatives": [
+                "Sim",
+                "Não"
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/kEWZESFn7G0NCMEhTr/giphy.gif",
+            "title": "É verdade que as pessoas que vivem em outros países também podem ter a doença COVID-19?",
+            "description": "",
+            "answer": 0,
+            "alternatives": [
+                "Sim",
+                "Não"
             ]
         }
     ],
