@@ -11,7 +11,7 @@ Teste seus conhecimentos sobre COVID-19 e aprenda sobre React com NextJS!
 
 ## Live App
 
-[Covid Quiz](covid-quiz.vercel.app/)  
+[Covid Quiz](https://covid-quiz.vercel.app/)  
 
 ## Como fazer o doploy local
 
