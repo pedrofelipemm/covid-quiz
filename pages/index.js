@@ -49,7 +49,7 @@ export default function Home() {
           animate="show"
         >
           <Widget.Header>
-            <h1>COVID-19 Quiz</h1>
+            <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
             <p>{db.description}</p>

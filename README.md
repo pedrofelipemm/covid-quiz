@@ -1,4 +1,4 @@
-# COVID-19 Quiz App
+# 🦠 COVID-19 Quiz 🦠
 
 Projeto construido durante a Imersão React edição NextJS da Alura!  
 Teste seus conhecimentos sobre COVID-19 e aprenda sobre React com NextJS!

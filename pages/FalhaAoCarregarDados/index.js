@@ -46,7 +46,7 @@ export default function Falha({ query }) {
         >
           <Widget.Header>
             <BackLinkArrow href="/" />
-            <h1>COVID-19 Quiz</h1>
+            <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
             <h1>Falha ao carregar dados do quiz:</h1>
