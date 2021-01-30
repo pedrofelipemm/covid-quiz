@@ -9,6 +9,10 @@ Teste seus conhecimentos sobre COVID-19 e aprenda sobre React com NextJS!
   [Styled Components](https://styled-components.com/)  
   [Next.js](https://nextjs.org/)  
 
+## Live App
+
+[Covid Quiz](covid-quiz.vercel.app/)  
+
 ## Como fazer o doploy local
 
 ```bash
