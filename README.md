@@ -1,5 +1,7 @@
 # COVID-19 Quiz App
 
+[![licence mit](https://img.shields.io/github/license/pedrofelipemm/covid-quiz)](https://github.com/pedrofelipemm/covid-quiz/blob/main/LICENSE)
+
 Projeto construido durante a Imersão React edição NextJS da Alura!  
 Teste seus conhecimentos sobre COVID-19 e aprenda sobre React com NextJS!
 
