@@ -64,4 +64,9 @@ Widget.Topic = styled.a`
   }
 `;
 
+Widget.DisabledTopic = styled(Widget.Topic)`
+  background-color: #979797;
+  cursor: not-allowed;
+`;
+
 export default Widget;

@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Lottie } from '@crello/react-lottie';
 
-import { Ripple } from 'react-awesome-spinners';
-
 import db from '../../../db.json';
 
 import Widget from '../../components/Widget';
@@ -16,6 +14,7 @@ import Button from '../../components/Button';
 import AlternativesForm from '../../components/AlternativesForm';
 import GitHubCorner from '../../components/GitHubCorner';
 import BackLinkArrow from '../../components/BackLinkArrow';
+import Link from '../../components/Link';
 
 import loadingAnimation from './animations/loading.json';
 
@@ -25,15 +24,6 @@ function LoadingWidget() {
       <Widget.Header>
         Carregando...
       </Widget.Header>
-
-      {/* <Widget.Content> */}
-        {/* <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-        >
-          <Ripple />
-        </div> */}
 
       <Widget.Content style={{ display: 'flex', justifyContent: 'center' }}>
         <Lottie
@@ -45,7 +35,7 @@ function LoadingWidget() {
 
       </Widget.Content>
     </Widget>
-  )
+  );
 }
 
 function QuestionWidget({
@@ -148,11 +138,17 @@ function ResultWidget({ results }) {
   return (
     <Widget>
       <Widget.Header>
-        Tela de Resultado:
+        <BackLinkArrow href="/" />
+        Tela de Resultado
       </Widget.Header>
 
       <Widget.Content>
-        <h1>Parabéns {nome}!</h1>
+        <h1>
+          Parabéns
+          {' '}
+          {nome}
+          !
+        </h1>
         <p>
           Você acertou
           {' '}
@@ -173,6 +169,15 @@ function ResultWidget({ results }) {
             </li>
           ))}
         </ul>
+
+        <br />
+
+        <div style={{ textAlign: 'center' }}>
+          <Button href="/" as={Link} style={{ textDecoration: 'none' }}>
+            Voltar
+          </Button>
+        </div>
+
       </Widget.Content>
     </Widget>
   );

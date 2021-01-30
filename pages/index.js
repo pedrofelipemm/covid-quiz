@@ -25,6 +25,11 @@ const Ola = (props) => (
 export default function Home() {
   const router = useRouter();
   const [name, setName] = React.useState('');
+  const randomLinks = [...db.external];
+
+  React.useEffect(() => {
+    randomLinks.sort(() => 0.5 - Math.random());
+  }, []);
 
   return (
     <QuizBackground backgroundImage={db.bg}>
@@ -66,8 +71,8 @@ export default function Home() {
             <br />
             { name ? (
               <Ola>
-                {' '}
                 Olá
+                {' '}
                 {name}
                 !
                 {' '}
@@ -90,7 +95,7 @@ export default function Home() {
             <h1>Quizes da Galera</h1>
 
             <ul>
-              {db.external.map((linkExterno) => {
+              {randomLinks.slice(0, 3).map((linkExterno) => {
                 const [projectName, githubUser] = linkExterno
                   .replace(/\//g, '')
                   .replace('https:', '')
@@ -99,12 +104,17 @@ export default function Home() {
 
                 return (
                   <li key={linkExterno}>
-                    <Widget.Topic
-                      as={Link}
-                      href={`/quiz/${projectName}___${githubUser}`}
-                    >
-                      {`${githubUser}/${projectName}`}
-                    </Widget.Topic>
+                    {name.length < 3
+                      ? (
+                        <Widget.DisabledTopic as={Link} href={"#"}>
+                          {`${githubUser}/${projectName}`}
+                        </Widget.DisabledTopic>
+                      )
+                      : (
+                        <Widget.Topic as={Link} href={`/quiz/${projectName}___${githubUser}`}>
+                          {`${githubUser}/${projectName}`}
+                        </Widget.Topic>
+                      )}
                   </li>
                 );
               })}

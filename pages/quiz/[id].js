@@ -3,9 +3,6 @@ import { ThemeProvider } from 'styled-components';
 import QuizScreen from '../../src/screens/Quiz/index';
 
 export default function QuizDaGaleraPage({ dbExterno }) {
-  // const [db, setDb] React.useState({})
-  // React.useEffect(() => {
-  // });
   return (
     <ThemeProvider theme={dbExterno.theme}>
       <QuizScreen
@@ -13,36 +10,34 @@ export default function QuizDaGaleraPage({ dbExterno }) {
         externalBg={dbExterno.bg}
       />
     </ThemeProvider>
-    // {/* <pre style={{ color: 'black' }}>
-    //   {JSON.stringify(dbExterno.questions, null, 4)}
-    // </pre> */}
   );
+}
+
+function redirectOnError({ res }, projectName, githubUser) {
+  res.writeHead(302, { Location: `/FalhaAoCarregarDados?query=${projectName}___${githubUser}` });
+  res.end();
 }
 
 export async function getServerSideProps(context) {
   const [projectName, githubUser] = context.query.id.split('___');
-
   try {
     const dbExterno = await fetch(`https://${projectName}.${githubUser}.vercel.app/api/db`)
       .then((respostaDoServer) => {
         if (respostaDoServer.ok) {
           return respostaDoServer.json();
         }
+        redirectOnError(context, projectName, githubUser);
         throw new Error('Falha em pegar os dados');
       })
-      .then((respostaConvertidaEmObjeto) => respostaConvertidaEmObjeto)
-      // .catch((err) => {
-      //   // console.error(err);
-      // });
+      .then((respostaConvertidaEmObjeto) => respostaConvertidaEmObjeto);
 
-    // console.log('dbExterno', dbExterno);
-    // console.log('Infos que o Next da para nós', context.query.id);
     return {
       props: {
         dbExterno,
       },
     };
-  } catch(err) {
+  } catch (err) {
+    redirectOnError(context, projectName, githubUser);
     throw new Error(err);
   }
 }

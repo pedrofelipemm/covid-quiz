@@ -106,7 +106,11 @@
     ],
     "external": [
         "https://aluraquiz-css.omariosouto.vercel.app/",
-        "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
+        "https://covid19quiz.felipepereirapinto.vercel.app/",
+        "https://disgust-quiz.arrivabeni.vercel.app/",
+        "https://quiz-games.gabrielwolf-dev.vercel.app/",
+        "https://internet-quiz.johnmaroeli.vercel.app/",
+        "https://imersao-react-next-js.nathanaquino.vercel.app"
     ],
     "theme": {
         "colors": {
