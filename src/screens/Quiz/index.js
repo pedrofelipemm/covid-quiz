@@ -3,6 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Lottie } from '@crello/react-lottie';
+import { motion } from 'framer-motion';
 
 import db from '../../../db.json';
 
@@ -27,8 +28,6 @@ function LoadingWidget() {
 
       <Widget.Content style={{ display: 'flex', justifyContent: 'center' }}>
         <Lottie
-          width="200px"
-          height="200px"
           className="lottie-container basic"
           config={{ animationData: loadingAnimation, loop: true, autoplay: true }}
         />
@@ -44,14 +43,25 @@ function QuestionWidget({
   totalQuestions,
   onSubmit,
   addResult,
+  widgetXPos,
 }) {
   const [selectedAlternative, setSelectedAlternative] = React.useState(undefined);
   const [isQuestionSubmited, setIsQuestionSubmited] = React.useState(false);
   const questionId = `question__${questionIndex}`;
   const isCorrect = selectedAlternative === question.answer;
   const hasAlternativeSelected = selectedAlternative !== undefined;
+
   return (
-    <Widget>
+    <Widget
+      as={motion.div}
+      transition={{ duration: 0.5 }}
+      variants={{
+        show: { opacity: 1, x: widgetXPos },
+        hidden: { opacity: 0, x: '-100%' },
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>
         <BackLinkArrow href="/" />
         <h3>
@@ -135,8 +145,18 @@ QuestionWidget.propTypes = {
 function ResultWidget({ results }) {
   const router = useRouter();
   const nome = router.query.name;
+
   return (
-    <Widget>
+    <Widget
+      as={motion.div}
+      transition={{ duration: 1 }}
+      variants={{
+        show: { opacity: 1, y: '0', rotate: 360 },
+        hidden: { opacity: 0, y: '100%' },
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>
         <BackLinkArrow href="/" />
         Tela de Resultado
@@ -192,6 +212,8 @@ const screenStates = {
 export default function QuizPage({ externalQuestions, externalBg }) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [widgetXPos, setWidgetXPos] = React.useState(0);
+
   const questionIndex = currentQuestion;
   const [results, setResults] = React.useState([]);
   const question = externalQuestions[questionIndex];
@@ -213,10 +235,19 @@ export default function QuizPage({ externalQuestions, externalBg }) {
 
   function handleSubmitQuiz() {
     const nextQuestion = questionIndex + 1;
+    const { innerWidth: width } = window;
+    setWidgetXPos(width);
+
     if (nextQuestion < totalQuestions) {
       setCurrentQuestion(nextQuestion);
+      setTimeout(() => {
+        setWidgetXPos(0);
+      }, 500);
     } else {
-      setScreenState(screenStates.RESULT);
+      setWidgetXPos(width);
+      setTimeout(() => {
+        setScreenState(screenStates.RESULT);
+      }, 500);
     }
   }
 
@@ -231,12 +262,15 @@ export default function QuizPage({ externalQuestions, externalBg }) {
           totalQuestions={totalQuestions}
           onSubmit={handleSubmitQuiz}
           addResult={addResult}
+          widgetXPos={widgetXPos}
         />
         )}
 
         {screenState === screenStates.LOADING && <LoadingWidget />}
 
-        {screenState === screenStates.RESULT && <ResultWidget results={results} />}
+        {screenState === screenStates.RESULT
+        && <ResultWidget results={results} />}
+
       </QuizContainer>
 
       <GitHubCorner projectUrl="https://github.com/pedrofelipemm" />

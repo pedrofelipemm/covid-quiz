@@ -36,7 +36,7 @@ export default function Falha({ query }) {
         <QuizLogo />
         <Widget
           as={motion.section}
-          transition={{ delay: 0, duration: 0.5 }}
+          transition={{ duration: 0.5 }}
           variants={{
             show: { opacity: 1, y: '0' },
             hidden: { opacity: 0, y: '100%' },
