@@ -12,6 +12,12 @@ Teste seus conhecimentos sobre COVID-19 e aprenda sobre React com NextJS!
   [Next.js](https://nextjs.org/) - The React Framework for Production  
   [Firestore](https://firebase.google.com/docs/firestore) - Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and Google Cloud.  
 
+## Páginas
+
+![Home](https://github.com/pedrofelipemm/covid-quiz/blob/main/_docs/home.png?raw=true)
+![Perguntas](https://github.com/pedrofelipemm/covid-quiz/blob/main/_docs/questions.png?raw=true)
+![Placar](https://github.com/pedrofelipemm/covid-quiz/blob/main/_docs/score.png?raw=true)
+
 ## Live App
 
 [Covid Quiz](https://covid-quiz.vercel.app/)  
