@@ -7,10 +7,10 @@ Teste seus conhecimentos sobre COVID-19 e aprenda sobre React com NextJS!
 
 ## Tecnologias Utilizadas
 
-  [React](https://reactjs.org/)  
-  [Styled Components](https://styled-components.com/)  
-  [Next.js](https://nextjs.org/)  
-  [Firestore](https://firebase.google.com/docs/firestore)  
+  [React](https://reactjs.org/) - A JavaScript library for building user interfaces  
+  [Styled Components](https://styled-components.com/) - Use the best bits of ES6 and CSS to style your apps without stress 💅🏾  
+  [Next.js](https://nextjs.org/) - The React Framework for Production  
+  [Firestore](https://firebase.google.com/docs/firestore) - Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and Google Cloud.  
 
 ## Live App
 
