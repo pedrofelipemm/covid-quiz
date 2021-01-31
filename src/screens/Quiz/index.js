@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -96,12 +96,12 @@ function QuestionWidget({
           onSubmit={(event) => {
             event.preventDefault();
             setIsQuestionSubmited(true);
+            addResult(isCorrect);
             setTimeout(() => {
-              addResult(isCorrect);
               onSubmit();
               setIsQuestionSubmited(false);
               setSelectedAlternative(undefined);
-            }, 1 * 1000);
+            }, 1 * 500);
           }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
@@ -164,9 +164,21 @@ QuestionWidget.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-function ResultWidget({ results }) {
+// ajustar
+function getResults(callback) {
+  fetch('/api/results')
+    .then((resp) => resp.json())
+    .then((data) => {
+      callback(data.results);
+    });
+}
+
+function ResultWidget({ result }) {
   const router = useRouter();
   const nome = router.query.name;
+  const [placar, setPlacar] = React.useState([]);
+
+  React.useEffect(() => { getResults(setPlacar); }, []);
 
   return (
     <Widget
@@ -181,7 +193,7 @@ function ResultWidget({ results }) {
     >
       <Widget.Header>
         <BackLinkArrow href="/" />
-        Tela de Resultado
+        Tela de Resultados
       </Widget.Header>
 
       <Widget.Content>
@@ -192,24 +204,24 @@ function ResultWidget({ results }) {
           !
         </h1>
         <p>
-          Você acertou
+          Você fez
           {' '}
-          {results.filter((x) => x).length}
+          {result}
           {' '}
-          perguntas
+          pontos!
         </p>
+        <br />
+        <h1>Placar:</h1>
         <ul>
-          {results.map((result, index) => (
-            <li key={`result__${result}`}>
-              #
-              {index + 1}
-              {' '}
-              Resultado:
-              {result === true
-                ? 'Acertou'
-                : 'Errou'}
-            </li>
-          ))}
+          {
+            placar.map((e) => (
+              <li>
+                <Widget.Topic>
+                  {`Nome: ${e.name} - ${e.value} pontos`}
+                </Widget.Topic>
+              </li>
+            ))
+          }
         </ul>
 
         <br />
@@ -235,6 +247,10 @@ export default function QuizPage({ externalQuestions, externalBg }) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [widgetXPos, setWidgetXPos] = React.useState(0);
+  const [result, setResult] = React.useState(0);
+
+  const router = useRouter();
+  const nome = router.query.name;
 
   const questionIndex = currentQuestion;
   const [results, setResults] = React.useState([]);
@@ -269,6 +285,17 @@ export default function QuizPage({ externalQuestions, externalBg }) {
       setWidgetXPos(width);
       setTimeout(() => {
         setScreenState(screenStates.RESULT);
+
+        const placar = results.filter((x) => x).reduce((total) => total + 100, 0);
+        setResult(placar);
+
+        fetch('/api/results', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: nome,
+            result: placar,
+          }),
+        });
       }, 500);
     }
   }
@@ -291,7 +318,7 @@ export default function QuizPage({ externalQuestions, externalBg }) {
         {screenState === screenStates.LOADING && <LoadingWidget />}
 
         {screenState === screenStates.RESULT
-        && <ResultWidget results={results} />}
+        && <ResultWidget result={result} />}
 
       </QuizContainer>
 

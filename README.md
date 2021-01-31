@@ -10,12 +10,23 @@ Teste seus conhecimentos sobre COVID-19 e aprenda sobre React com NextJS!
   [React](https://reactjs.org/)  
   [Styled Components](https://styled-components.com/)  
   [Next.js](https://nextjs.org/)  
+  [Firestore](https://firebase.google.com/docs/firestore)  
 
 ## Live App
 
 [Covid Quiz](https://covid-quiz.vercel.app/)  
 
 ## Como fazer o doploy local
+
+Configure um projeto no Firestore.  
+Crie o arquivo .env.local na raíz do projeto com as seguintes informações fornecidas pelo Firestore:  
+
+```bash
+API_KEY=
+AUTH_DOMAIN=
+DATABASE_URL=
+PROJECT_ID=
+```
 
 ```bash
 npm install

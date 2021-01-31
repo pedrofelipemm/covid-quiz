@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
@@ -106,7 +105,7 @@ export default function Home() {
                   <li key={linkExterno}>
                     {name.length < 3
                       ? (
-                        <Widget.DisabledTopic as={Link} href={"#"}>
+                        <Widget.DisabledTopic as={Link} href="#">
                           {`${githubUser}/${projectName}`}
                         </Widget.DisabledTopic>
                       )
